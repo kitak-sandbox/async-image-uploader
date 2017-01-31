@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p>
+        <input type="file" accept="image/*">
+    </p> 
+    <script>
+        const fileEl = document.querySelectorAll('input[type="file"]')[0];
+        fileEl.addEventListener('change', function () {
+            if (this.files.length <= 0) {
+                return;
+            }
+            const file = this.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                // e.target.result
+                // TODO: resize if necessary and upload
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
